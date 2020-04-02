@@ -1,4 +1,44 @@
-Country,Region,Year,Population
-Andorra,Europe & Central Asia,2018,77006
-Andorra,Europe & Central Asia,2017,77001
-Andorra,Europe & Central Asia,2016,77297
+County,n
+alachua,29
+baker,1
+bay,1
+brevard,5
+broward,180
+charlotte,2
+citrus,8
+clay,6
+collier,28
+columbia,1
+miami-dade,177
+duval,37
+escambia,1
+gadsden,1
+hernando,5
+highlands,1
+hillsborough,50
+indian river,8
+jackson,1
+lake,6
+lee,18
+leon,4
+manatee,13
+marion,3
+martin,1
+monroe,1
+nassau,1
+okaloosa,12
+orange,29
+osceola,22
+palm beach,59
+pasco,8
+pinellas,30
+polk,11
+putnam,1
+santa rosa,3
+sarasota,15
+seminole,16
+st johns,12
+st lucie,2
+sumter,4
+volusia,12
+walton,4

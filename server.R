@@ -2,6 +2,8 @@ library(shiny)
 library(shinydashboard)
 library(ggplot2)
 library(readr)
+library(tidyverse)
+library(maps)
 
 shinyServer(function(input, output, session) {
   
@@ -29,6 +31,7 @@ shinyServer(function(input, output, session) {
                                                                 `st johns` = "st. johns", 
                                                                 `st lucie` = "st. lucie")) %>% 
       filter(County != "unknown")
+    floridamapdata <- map_data("county") %>% filter(region == "florida")
     covidFLmap <- left_join(floridamapdata, corona.cases, by = c(subregion = "County"))
     
     
