@@ -1,0 +1,70 @@
+ "alexandria city" # independent city, border
+ "bristol city"  # independent city -- not in a county
+  "buena vista city"  #independent city
+  "charlottesville city" #independent city
+  "chesapeake city"   <- This is in Cecil County -- but that's also in NYT data. Deal with it bro.
+  "covington city"  # another independent city, border
+  "danville city"   # another independent, border
+ "dekalb"
+ "desoto"   <- county, but can't find it in the mapping lol
+ "dewitt"   <- Texas and illinois cant find mapping
+ "district of columbia"   <- no county mapping
+ "doña ana"
+ "dupage"
+ "emporia city"   <- This is in Lyon County
+  "fairfax city" # this is an independent city inside of fairfax county lmao politics
+  "franklin city" # no clue if in tennessee or virginia
+ "fredericksburg city"  # border city
+ "galax city" #independent
+ "hampton city" #indep
+  "harrisonburg city"  #indep
+  "hopewell city"  <- inside hopewell county
+ "kansas city" #border
+   "laporte"
+"lasalle"
+ "lexington city" #lmao 3 states have this fucking city
+"lynchburg city" #holy shit this one is in 3 county lines ?????????
+"manassas city" #virginia is actually fucked up
+ "manassas park city" #when you have to have a city outside (from the inside) the city that's outside the general county
+ "new york city"
+ "newport news city"   #independent
+ "norfolk city"   #virginia
+  "o'brien"
+"oglala lakota" #indian reservation (of the oglala lakota)
+ "petersburg city" #fucking virginia
+ "poquoson city"  #fucking virginia
+ "portsmouth city" #fucking virginia
+ "prince george's"
+ "queen anne's"
+  "radford city" #fucking virginia
+  "richmond city" #fucking virginia
+ "roanoke city" #fucking virginia
+  "salem city" #fucking virginia
+ "st. bernard"
+   "st. charles"
+   "st. clair"
+     "st. croix"
+     "st. francis"
+   "st. francois"
+ "st. helena"
+    "st. james"
+     "st. john the baptist"
+     "st. johns"
+     "st. joseph"
+    "st. landry"
+ "st. lawrence"
+  "st. louis"
+     "st. louis city"
+"st. lucie"
+     "st. martin"
+    "st. mary"
+ "st. mary's"
+    "st. tammany"
+   "staunton city" #you know it
+ "ste. genevieve"
+"suffolk city"  # mfing virginia
+  "unknown"  <- deal with unknowns thanks
+ "virginia beach city" #guess where this is
+ "waynesboro city" #lmao
+ "williamsburg city" #lmao
+ "winchester city" #lmao
