@@ -4,6 +4,7 @@ library(shinydashboard)
 library(maps)
 library(plotly)
 library(DT)
+library(deSolve)
 
 header <- dashboardHeader(title = "United States Coronavirus")
 
@@ -44,7 +45,7 @@ sidebar <- dashboardSidebar(
     conditionalPanel("input.tabs == 'usa' | input.tabs == 'region'",                 #Buttons for Total United States
                      radioButtons("deaths-cases", 
                                   label = h4("Plot:"),
-                                  choices = list("Deaths" = "deaths", "Cases" = "cases"),
+                                  choices = list("Deaths" = "deaths", "Cases" = "cases", "Case Fatality Rate" = "case fatality rate"),
                                   selected = "cases"),
                      radioButtons("log-normal",
                                   label = h4("Color Scale"),
@@ -53,11 +54,45 @@ sidebar <- dashboardSidebar(
                      ),                                      #End of Buttons for United States
     conditionalPanel("input.tabs == 'region'",
                      uiOutput("county_slider")
+                     ), 
+    
+    conditionalPanel("input.tabs == 'models'", 
+                     radioButtons("county-state",
+                                  label = h4("Look at County or State Models:"),
+                                  choices = list("State" = "state", "County" = "county"),
+                                  selected = "state"),
+                     selectInput("state-model",
+                                 label = "Select State",
+                                 choices = c("Alabama", "Arizona","Arkansas", "California", "Colorado",
+                                             "Connecticut","Delaware", "Florida","Georgia","Idaho", 
+                                             "Illinois", "Indiana","Iowa", "Kansas", "Kentucky", "Louisiana", 
+                                             "Maine","Maryland", "Massachusetts","Michigan", "Minnesota","Mississippi", 
+                                             "Missouri", "Montana","Nebraska", "Nevada", "New Hampshire","New Jersey",
+                                             "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma",
+                                             "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", 
+                                             "Texas","Utah", "Vermont","Virginia", "Washington", "West Virginia",
+                                             "Wisconsin","Wyoming"),
+                                 selected = "Florida"
+                     ),
+                     uiOutput("state-county-dropdown"),
+                     numericInput("population",
+                                  label = "Population Size",
+                                  min = 100, step = 1, value = 80000),
+                     sliderInput("beta", 
+                                 label = "Recovery Rate: (8 days)",
+                                 step = 1,
+                                 value = 8,
+                                 min = 1, max = 15)
+                     
                      )
     )
 )
 
 body <- dashboardBody(
+  tags$head(tags$style(
+    type = "text/css", 
+    ".irs-grid-text {font-size: 12pt !important; transform: rotate(-90deg) translate(-30px);"
+  )),
   tabItems(
   # Boxes need to be put in a row (or column)
     tabItem(tabName = "usa",                              #Layout for Total USA map
@@ -92,21 +127,22 @@ body <- dashboardBody(
             )
         ),
       fluidRow(
-        box(width = 6, 
-            status = "warning",
-            title = "Options",
-            solidHeader = TRUE,
-            collapsible = FALSE,
-            h2("As of Right now, I cannot get the plot to dynamically update with the slider bar."),
-            h4("It probably has something to do with the fact that I can't call the value from the dynamically rendered date slider"),
-            h4("Notice that when you change the state, the date from first infection changes"),
-            h4("However, I can't filter the data based on that value (and hence a slow load time).")
+        uiOutput("data_info")
+        
+  #      box(width = 6, 
+  #          status = "warning",
+  #          title = "Data Information",
+  #          solidHeader = TRUE,
+  #          collapsible = FALSE,
             #DTOutput("poopy")
-            )
+  #          )
         )
       ),                              #End Of Regional Plots and Data
     tabItem(tabName = "models",       #Modeling Tab
-            h2("modeling Outputs")
+            box(status = "info",
+                title = "Modeling of Cases in different regions",
+                solidHeader = TRUE,
+                plotOutput("state_model"))
     )
   )
 )
